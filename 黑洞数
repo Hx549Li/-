@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <math.h>
+
+int main(void)
+{
+    int a,n,num[3],max,min,h,t,i,item,count=1;
+    scanf("%d",&n);
+    if(n==495)
+    printf("1: 954 - 459 = 495");
+    while(n!=495&&n!=0){
+    	a=n;
+    	for(i=0;i<3;i++){
+    		num[i]=a%10;
+    		a/=10;
+		}
+		h=num[0],t=num[1],i=num[2];
+		if(i>t){
+			item=i;i=t;t=item;
+		}
+		if(i>h){
+			item=i;i=h;h=item;
+		}
+		if(t>h){
+			item=t;t=h;h=item;
+		}
+		max=h*100+t*10+i;
+		min=i*100+t*10+h;
+		n=max-min;
+		printf("%d: %d - %d = %d\n",count,max,min,n);
+		count++;
+	}
+    return 0;
+}
